@@ -512,7 +512,7 @@ class MongoEngineResource(resources.ModelResource):
         except mongoengine.ValidationError, e:
             raise exceptions.ValidationError(e.message)
 
-    def obj_update(self, bundle, request=None, **kwargs):
+    def obj_update(self, bundle, request=None, skip_errors=False, **kwargs):
         try:
             self._reset_collection()
 
